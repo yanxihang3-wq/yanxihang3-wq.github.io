@@ -1,169 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feihang Shower | Professional Sanitary Ware Manufacturer</title>
+    <style>
+        /* 基础样式优化 */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #fcfcfc;
+            color: #333;
+            line-height: 1.6;
+        }
 
-<meta charset="UTF-8">
-<title>Feihang Shower</title>
+        /* 导航栏：保持深色专业感 */
+        .nav {
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-<style>
+        .nav .logo {
+            font-size: 22px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
 
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-}
+        .nav a {
+            color: #ccc;
+            margin-left: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
 
-.nav{
-background:#111;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-}
+        .nav a:hover {
+            color: #25D366;
+        }
 
-.nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-}
+        /* Banner 部分：通过渐变遮罩解决白色字体看不清的问题 */
+        .banner {
+            /* linear-gradient 给图片蒙上一层淡淡的深色，让白色文字跳出来 */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("1.JPG") center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
 
-.banner{
-background:url("1.JPG") center/cover no-repeat;
-height:450px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:42px;
-font-weight:bold;
-}
+        .banner h1 {
+            font-size: 52px;
+            margin: 0;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5); /* 增加文字阴影 */
+        }
 
-.section{
-padding:70px 60px;
-text-align:center;
-}
+        .banner p {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: 300;
+            text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+        }
 
-.products{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:40px;
-}
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
 
-.product{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
+        h2 {
+            font-size: 32px;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
 
-.product img{
-width:100%;
-border-radius:8px;
-}
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #25D366;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-.footer{
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
-}
+        /* 产品展示网格 */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-}
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
 
-</style>
+        .product:hover {
+            transform: translateY(-10px);
+        }
 
+        .product img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product p {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #111;
+        }
+
+        /* 关于我们容器 */
+        .about-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .about-box p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* 联系信息部分 */
+        .contact-grid {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        .contact-item {
+            font-size: 15px;
+        }
+
+        .contact-item b {
+            display: block;
+            color: #111;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .contact-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #111;
+            color: #777;
+            text-align: center;
+            padding: 40px;
+            font-size: 14px;
+        }
+
+        /* WhatsApp 悬浮按钮 */
+        .whatsapp-float {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background: #1ebe57;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav { padding: 15px 20px; }
+            .banner h1 { font-size: 36px; }
+            .section { padding: 60px 20px; }
+            .about-box { padding: 30px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="nav">
-<div><b>Feihang Shower</b></div>
-
-<div>
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
-</div>
+    <div class="logo">Feihang Shower</div>
+    <div>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="mailto:feihangshower@gmail.com">Contact</a>
+    </div>
 </div>
 
 <div class="banner">
-Professional Shower Manufacturer
+    <h1>Professional Shower Manufacturer</h1>
+    <p>Premium Bathroom Solutions & Global Supply</p>
 </div>
 
-<div class="section">
-
-<h2>Our Products</h2>
-
-<div class="products">
-
-<div class="product">
-<img src="1.JPG">
-<p>Rain Shower Head</p>
+<div class="section" id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+        <div class="product"><img src="1.JPG"><p>Rain Shower Head</p></div>
+        <div class="product"><img src="2.jpg"><p>Bidet Spray</p></div>
+        <div class="product"><img src="3.jpg"><p>Hand Shower</p></div>
+        <div class="product"><img src="4.jpg"><p>Bathroom Spray</p></div>
+        <div class="product"><img src="5.jpg"><p>Shower Head</p></div>
+        <div class="product"><img src="6.JPG"><p>Shower Accessories</p></div>
+    </div>
 </div>
 
-<div class="product">
-<img src="2.jpg">
-<p>Bidet Spray</p>
-</div>
-
-<div class="product">
-<img src="3.jpg">
-<p>Hand Shower</p>
-</div>
-
-<div class="product">
-<img src="4.jpg">
-<p>Bathroom Spray</p>
-</div>
-
-<div class="product">
-<img src="5.jpg">
-<p>Shower Head</p>
-</div>
-
-<div class="product">
-<img src="6.JPG">
-<p>Shower Accessories</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>About Us</h2>
-
-<p>
-Cixi Feihang Sanitary Ware Co., Ltd. is a professional manufacturer of
-shower heads, bidet sprays and bathroom accessories.  
-We provide OEM and ODM services for global brands.
-</p>
-
+<div class="section" id="about" style="background: #f4f7f6;">
+    <h2>About Us</h2>
+    <div class="about-box">
+        <p>
+            <b>Cixi Feihang Sanitary Ware Co., Ltd.</b> is a leading manufacturer dedicated to the production of high-quality bathroom fixtures. We specialize in engineering durable and stylish shower heads, bidet sprays, and essential bathroom accessories for modern homes and commercial spaces.
+        </p>
+        <p>
+            With years of expertise in the sanitary ware industry, we offer comprehensive <b>OEM and ODM services</b>. Our products are exported to various international markets, recognized for their superior water pressure performance and long-lasting finish.
+        </p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <b>Contact Person</b>
+                Sales Department
+            </div>
+            <div class="contact-item">
+                <b>WhatsApp / Mobile</b>
+                <a href="https://wa.me/8613586915645" class="contact-link">+86 13586915645</a>
+            </div>
+            <div class="contact-item">
+                <b>Email</b>
+                feihangshower@gmail.com
+            </div>
+            <div class="contact-item">
+                <b>Location</b>
+                Cixi, Ningbo, Zhejiang Province, China
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="footer">
-
-<p>Email: feihangshower@gmail.com</p>
-<p>© Feihang Shower</p>
-
+    <p>© 2026 Feihang Shower. All Rights Reserved.</p>
 </div>
 
-<a class="whatsapp" href="#">WhatsApp</a>
+<a class="whatsapp-float" href="https://wa.me/8613586915645" target="_blank">
+    Connect via WhatsApp
+</a>
 
 </body>
 </html>
-<!-- update -->
